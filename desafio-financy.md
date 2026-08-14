@@ -121,7 +121,14 @@ arquivo do Figma**. O style guide está centralizado no bloco `@theme` de
 [`frontend/src/index.css`](frontend/src/index.css), então alinhar cores, fontes, raios e sombras ao
 Figma é uma edição em um único arquivo.
 
-Passo a passo da conferência em [`TODO.md`](TODO.md).
+O que conferir ao comparar com o Figma:
+
+- **Paleta** — hoje usa roxo `#7C3AED` como cor de marca, verde `#059669` nas entradas e vermelho
+  `#E11D48` nas saídas.
+- **Tipografia** — Inter, carregada em [`frontend/index.html`](frontend/index.html).
+- **Raios e sombras** — `--radius-card`, `--shadow-card` e `--shadow-pop`, no mesmo `@theme`.
+- **Estrutura** — sidebar escura no desktop com drawer no mobile; login e cadastro em tela dividida
+  com painel de marca à esquerda.
 
 ---
 
@@ -129,7 +136,7 @@ Passo a passo da conferência em [`TODO.md`](TODO.md).
 
 - [x] Repositório com as subpastas `backend/` e `frontend/`
 - [x] Código com todas as regras e funcionalidades obrigatórias
-- [ ] **Repositório público no GitHub** → ver [`TODO.md`](TODO.md)
-- [ ] **Link enviado na plataforma** → ver [`TODO.md`](TODO.md)
+- [x] Repositório público no GitHub
+- [ ] Link enviado na plataforma
 
 **Período de envio:** 03/08/26 a 17/08/26

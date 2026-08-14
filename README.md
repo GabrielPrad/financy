@@ -23,6 +23,77 @@ Rocketseat).
 
 ---
 
+## 🚀 Como rodar o projeto
+
+> Pré-requisito: **Node.js 20+** (validado no Node 22).
+
+O repositório tem duas aplicações independentes. Elas rodam em **dois terminais separados** —
+comece sempre pela API, porque o front depende dela.
+
+### 1. Back-end
+
+```bash
+cd backend
+npm install
+cp .env.example .env        # Windows/PowerShell: copy .env.example .env
+npm run setup               # gera o Prisma Client e cria o banco SQLite
+npm run dev
+```
+
+A API sobe em **http://localhost:4000/graphql** — abrindo essa URL no navegador você cai no
+Apollo Sandbox e consegue explorar o schema.
+
+> ⚠️ Preencha o `JWT_SECRET` no `.env` antes de subir. A aplicação valida as variáveis no boot e
+> se recusa a iniciar sem ele, apontando o que falta.
+
+### 2. Front-end
+
+Em **outro terminal**, com a API já rodando:
+
+```bash
+cd frontend
+npm install
+cp .env.example .env        # Windows/PowerShell: copy .env.example .env
+npm run dev
+```
+
+A aplicação sobe em **http://localhost:5173**.
+
+### 3. Usando
+
+Acesse `http://localhost:5173`, clique em **Criar conta** e cadastre-se. A conta já nasce com 6
+categorias padrão, então dá para lançar a primeira transação na hora.
+
+### Variáveis de ambiente
+
+**`backend/.env`**
+
+| Variável | Obrigatória | Padrão | Descrição |
+| --- | --- | --- | --- |
+| `JWT_SECRET` | ✅ | — | Segredo usado para assinar os tokens |
+| `DATABASE_URL` | ✅ | — | Conexão do SQLite (`file:./dev.db`) |
+| `PORT` | — | `4000` | Porta da API |
+| `JWT_EXPIRES_IN` | — | `7d` | Validade do token |
+| `CORS_ORIGIN` | — | `*` | Origens liberadas, separadas por vírgula |
+
+**`frontend/.env`**
+
+| Variável | Descrição |
+| --- | --- |
+| `VITE_BACKEND_URL` | Endpoint GraphQL da API (`http://localhost:4000/graphql`) |
+
+### Scripts úteis
+
+| Comando | Onde | O que faz |
+| --- | --- | --- |
+| `npm run dev` | ambos | Modo desenvolvimento, com recarga automática |
+| `npm run build` | ambos | Checagem de tipos + build de produção |
+| `npm start` | `backend` | Roda o build de produção (exige `npm run build` antes) |
+| `npm run db:studio` | `backend` | Abre o Prisma Studio para inspecionar o banco |
+| `npm run db:reset` | `backend` | **Apaga** o banco e reaplica as migrações |
+
+---
+
 ## ✅ Funcionalidades
 
 ### Autenticação
