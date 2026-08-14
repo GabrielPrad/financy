@@ -1,0 +1,25 @@
+node_modules
+dist
+build
+
+# Variáveis de ambiente (mantenha apenas os .env.example versionados)
+.env
+.env.local
+.env.*.local
+
+# Banco de dados local
+*.db
+*.db-journal
+
+# Logs e caches
+*.log
+npm-debug.log*
+.cache
+.tmp
+
+# Editores e sistema operacional
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+Thumbs.db
